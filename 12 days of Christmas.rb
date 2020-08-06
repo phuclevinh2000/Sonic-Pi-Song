@@ -1,4 +1,6 @@
 # Welcome to Sonic Pi
+# The chart flow of this song: https://projects-static.raspberrypi.org/projects/code-a-carol/2a0ab917aa750c8f254d4cb1f97e0d4f03d9f94e/en/resources/flowchart.pdf
+
 use_bpm 120
 use_synth :piano
 
