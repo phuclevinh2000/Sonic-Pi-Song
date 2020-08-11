@@ -43,23 +43,48 @@ define :down3 do
   play_pattern_timed notes, durations
 end
 
+define :up4 do
+  notes =[:a4, [:f5, :a4], [:e5, :g4], [:d5, :f4], [:b4, :g4], :e5, :f5, :fs5, [:g5, :b4], :a5, :g5, [:f5,:b4], :e5, [:d5,:b4],[:e5,:c5],[:e5,:c5,:e4],[:f5,:d5,:f4],[:fs5,:ds5,:fs4]]
+  durations =[1,1,1,0.5,3.25,0.25,0.75,0.25,0.5,0.5,0.5,1,0.5,1,2,1,0.75,0.25]
+  play_pattern_timed notes, durations
+end
+
+define :down4 do
+  notes =[]
+  durations =[]
+  play_pattern_timed notes, durations
+end
+
+define :up5 do
+  notes =[[:g5,:g4,:e5],[:g5,:e5,:e6,:g6],[:d5,:g5,:d6,:f6],[:g5,:e5,:c5,:g4],[:e5,:c5,:e4],[:f5,:d5,:f4],[:fs5,:ds5,:fs4],[:g5,:g4,:e5],[:g5,:e5,:e6,:g6],[:d5,:g5,:d6,:f6],[:g5,:e5,:c5,:g4],[:a4,:c5,:f5,:a5],[:f5,:f4],[:g5,:g4],[:gs5,:gs4]]
+  durations =[1,1,1,1,3.75,0.25,0.75,0.25,1,1,1,1,3,0.5,0.5]
+  play_pattern_timed notes, durations
+end
 
 
-#loop
-in_thread do
-  up1
-end
-down1
-in_thread do
-  up2
-end
-down2
 
-in_thread do
-  up3
-end
-in_thread do
+
+
+#play the pieces
+with_fx :reverb, room: 0.6,mix: 0.7, pan: 1 do
+  #line 1
+  in_thread do
+    up1
+  end
+  down1
+  in_thread do
+    up2
+  end
+  down2
+  
+  #line 2
+  in_thread do
+    up3
+  end
   down3
+  
+  up4
+  up5
 end
 
 
